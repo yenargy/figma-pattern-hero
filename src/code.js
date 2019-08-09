@@ -2,35 +2,76 @@ figma.showUI(__html__, { width: 300, height: 400 });
 
 figma.ui.onmessage = msg => {
   if (msg.type === 'create-grid') {
-    const dimensions = msg.dimensions;
+    const options = msg.options;
     let x = 0;
     let y = 0;
-    let selectionCounter = 0;
-    let selectionLength = figma.currentPage.selection.length;
-    let nodes = [];
+    const totalGridLength = options.rows * options.cols;
+    // Get selection on current page
+    const { selection } = figma.currentPage;
 
-    for (let i = 0; (i < dimensions.rows); i++) {
-      if (selectionCounter < selectionLength) {
-        for(let j = 0; j < dimensions.cols; j++) {
-          if (selectionCounter < selectionLength) {
-            figma.currentPage.selection[selectionCounter].x = x;
-            figma.currentPage.selection[selectionCounter].y = y;
-            // console.log("---------------");
-            // console.log(j + " - x-axis: " + x + ", y-axis: " + y );
-            x = x + figma.currentPage.selection[selectionCounter].width + dimensions.padding
-            selectionCounter++;
-            nodes.push(figma.currentPage.selection[i]);
+    if (!(selection.length > 0)) {
+      console.log('no selection');
+      return;
+    }
+
+    // Creating copy of selected items
+    const copies = [];
+    selection.forEach(node => {
+      copies.push(node.clone())
+    });
+
+    if (options.repeat) {
+      while (copies.length  < totalGridLength) {
+        for(let i = 0; i < figma.currentPage.selection.length; i++) {
+          if (copies.length < totalGridLength) {
+            copies.push(figma.currentPage.selection[i].clone());
           }
         }
-        x = 0;
-        y = y + figma.currentPage.selection[i].height + dimensions.padding
       }
     }
 
-    // Creating a group
-    // const groupedNodes = figma.group(nodes, figma.currentPage)
+    if (options.randomize) {
+      shuffleArray(copies);
+    }
 
-    // figma.currentPage.selection = nodes
-    // figma.viewport.scrollAndZoomIntoView(nodes)
+    // Creating new group out of copies array
+    const group = figma.group(copies, figma.currentPage.selection[0].parent)
+    group.name = 'Grid';
+
+    // removing the previous selection
+    selection.forEach(node => {
+      node.remove();
+    });
+
+    figma.currentPage.selection = [group];
+
+    let selectionCounter = 0;
+    let selectionLength = figma.currentPage.selection[0].children.length;
+
+    for (let i = 0; i < options.rows; i++) {
+      if (selectionCounter < selectionLength) {
+        for(let j = 0; j < options.cols; j++) {
+          if (selectionCounter < selectionLength) {
+            figma.currentPage.selection[0].children[selectionCounter].x = x;
+            figma.currentPage.selection[0].children[selectionCounter].y = y;
+            x = x + figma.currentPage.selection[0].children[selectionCounter].width + options.padding
+            selectionCounter++;
+          }
+        }
+        x = 0;
+        y = y + figma.currentPage.selection[0].children[i].height + options.padding
+      }
+    }
+
+    figma.currentPage.selection = [group];
+  }
+}
+
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i].clone();
+      array[i] = array[j].clone();
+      array[j] = temp;
   }
 }
