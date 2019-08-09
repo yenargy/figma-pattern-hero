@@ -1,3 +1,16 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M27 5V27H5M31 9V31H9M1 1H23V23H1V1Z" stroke="black" stroke-width="2"/>
-</svg>
+<svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect y="1.52588e-05" width="19" height="19" fill="black"/>
+    <rect y="26" width="19" height="19" fill="black"/>
+    <rect x="26" y="45" width="19" height="19" transform="rotate(-90 26 45)" fill="url(#paint0_linear)"/>
+    <rect x="26" y="19" width="19" height="19" transform="rotate(-90 26 19)" fill="url(#paint1_linear)"/>
+    <defs>
+    <linearGradient id="paint0_linear" x1="35.5" y1="45" x2="35.5" y2="64" gradientUnits="userSpaceOnUse">
+    <stop/>
+    <stop offset="1" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="35.5" y1="19" x2="35.5" y2="38" gradientUnits="userSpaceOnUse">
+    <stop/>
+    <stop offset="1" stop-opacity="0"/>
+    </linearGradient>
+    </defs>
+    </svg>

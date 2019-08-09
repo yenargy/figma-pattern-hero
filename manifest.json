@@ -1,5 +1,5 @@
 {
-  "name": "grid-maker",
+  "name": "Grid Generator",
   "id": "740556241021336678",
   "api": "1.0.0",
   "main": "dist/code.js",

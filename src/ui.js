@@ -2,9 +2,10 @@ import './ui.css'
 import $ from "jquery";
 
 document.getElementById('create').onclick = () => {
-  const rows = $('#rows').val();
-  const cols = $('#cols').val();
-  parent.postMessage({ pluginMessage: { type: 'create-grid', dimensions: {rows, cols } } }, '*')
+  const rows = Number($('#rows').val());
+  const cols = Number($('#cols').val());
+  const padding = Number($('#padding').val());
+  parent.postMessage({ pluginMessage: { type: 'create-grid', dimensions: {rows, cols, padding } } }, '*')
 }
 
 document.getElementById('cancel').onclick = () => {
