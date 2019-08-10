@@ -59,12 +59,16 @@ figma.ui.onmessage = msg => {
       node.remove();
     });
 
+
+    // Replacing the selection array with appropriate ones
     selection = options.randomize ? shuffledCopies : copies;
 
     
+    // Caching the length and counters
     let selectionCounter = 0;
     let selectionLength = selection.length;
 
+    // Placing into a grid logic
     for (let i = 0; i < options.rows; i++) {
       if (selectionCounter < selectionLength) {
         for(let j = 0; j < options.cols; j++) {
@@ -90,8 +94,8 @@ figma.ui.onmessage = msg => {
   }
 }
 
+// Using Javascript implementation of Durstenfeld shuffle
 const shuffleArray = (array) => {
-  // Using Javascript implementation of Durstenfeld shuffle
   let newArray = Array.from(array);
   for (let i = newArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
