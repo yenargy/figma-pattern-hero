@@ -1,4 +1,4 @@
-figma.showUI(__html__, { width: 300, height: 400 });
+figma.showUI(__html__, { width: 230, height: 350 });
 
 figma.ui.onmessage = msg => {
   if (msg.type === 'cancel') {
@@ -16,6 +16,8 @@ figma.ui.onmessage = msg => {
       console.log('no selection');
       return;
     }
+
+    console.log(options);
 
     // Getting the position of the first selected node
     let x = 0;
@@ -43,10 +45,10 @@ figma.ui.onmessage = msg => {
         }
       }
     }
-    
+
     // Do the shuffling if the options is enabled
     let shuffledCopies = []
-    if (options.randomize) {
+    if (options.shuffle) {
       shuffledCopies = shuffleArray(copies);
       shuffledCopies.forEach(item => {
         figma.currentPage.appendChild(item);
@@ -61,9 +63,9 @@ figma.ui.onmessage = msg => {
 
 
     // Replacing the selection array with appropriate ones
-    selection = options.randomize ? shuffledCopies : copies;
+    selection = options.shuffle ? shuffledCopies : copies;
 
-    
+
     // Caching the length and counters
     let selectionCounter = 0;
     let selectionLength = selection.length;
