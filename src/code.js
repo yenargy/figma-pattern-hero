@@ -1,6 +1,10 @@
 figma.showUI(__html__, { width: 300, height: 400 });
 
 figma.ui.onmessage = msg => {
+  if (msg.type === 'cancel') {
+    figma.closePlugin();
+  }
+
   if (msg.type === 'create-grid') {
     const options = msg.options;
     let x = 0;
@@ -14,28 +18,34 @@ figma.ui.onmessage = msg => {
       return;
     }
 
-    // Creating copy of selected items
-    const copies = [];
+    // Creating copy of selected items for repeating and shuffling
+    let copies = [];
+
     selection.forEach(node => {
       copies.push(node.clone())
     });
 
     if (options.repeat) {
+      const l = figma.currentPage.selection.length;
       while (copies.length  < totalGridLength) {
-        for(let i = 0; i < figma.currentPage.selection.length; i++) {
+        for(let i = 0; i < l; i++) {
           if (copies.length < totalGridLength) {
             copies.push(figma.currentPage.selection[i].clone());
           }
         }
       }
     }
+    
+    let shuffledCopies = []
 
     if (options.randomize) {
-      shuffleArray(copies);
+      shuffledCopies = shuffleArray(copies);
+      shuffledCopies.forEach(item => {
+        figma.currentPage.appendChild(item);
+      })
     }
 
-    // Creating new group out of copies array
-    const group = figma.group(copies, figma.currentPage.selection[0].parent)
+    const group = figma.group(options.repeat ? copies : shuffledCopies, figma.currentPage.selection[0].parent)
     group.name = 'Grid';
 
     // removing the previous selection
@@ -44,6 +54,7 @@ figma.ui.onmessage = msg => {
     });
 
     figma.currentPage.selection = [group];
+
 
     let selectionCounter = 0;
     let selectionLength = figma.currentPage.selection[0].children.length;
@@ -68,10 +79,13 @@ figma.ui.onmessage = msg => {
 }
 
 const shuffleArray = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
+  // Using Javascript implementation of Durstenfeld shuffle
+  let newArray = Array.from(array);
+  for (let i = newArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i].clone();
-      array[i] = array[j].clone();
-      array[j] = temp;
+      let temp = newArray[i];
+      newArray[i] = newArray[j];
+      newArray[j] = temp;
   }
+  return newArray;
 }
