@@ -1,4 +1,4 @@
-<p class="help-text">Select one or more elements and choose the appropriate options below to create a grid pattern</p>
+<p class="help-text">Select one or more elements and choose the appropriate options below to create grid or a pattern</p>
 <div class="container">
     <div class="options-row-container">
         <div class="options-row-inner-container">
@@ -61,5 +61,9 @@
             </div>
         </div>
     </label>
-    <button id="create">Create Pattern</button>
+    <span id="error">Select atleast one node</span>
+    <button id="create">
+        <span id="default-action">Create Pattern</span>
+        <span id="loading-action" class="loading"></span>
+    </button>
 </div>

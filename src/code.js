@@ -18,14 +18,16 @@ figma.ui.onmessage = msg => {
 
     if (!(selection.length > 0)) {
       console.log('no selection');
+      figma.ui.postMessage({ data: {}, type: 'ERROR' })
       return;
     }
 
     console.log(options);
 
     // Getting the position of the first selected node
-    let x = 0;
-    let y = 0;
+    let x = figma.currentPage.selection[0].x;
+    let y = figma.currentPage.selection[0].y;
+    let initialPosition = x;
 
     let parentNode = figma.currentPage.selection[0].parent;
 
@@ -85,7 +87,7 @@ figma.ui.onmessage = msg => {
             selectionCounter++;
           }
         }
-        x = 0;
+        x = initialPosition;
         y = y + selection[i].height + options.padding
       }
     }
@@ -104,6 +106,7 @@ figma.ui.onmessage = msg => {
     nodes.push(group);
     nodes.push(selection[0].parent);
     figma.viewport.scrollAndZoomIntoView(nodes);
+    figma.ui.postMessage({ data: {}, type: 'DONE_LOADING' })
   }
 }
 
