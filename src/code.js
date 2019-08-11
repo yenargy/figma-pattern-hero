@@ -1,11 +1,15 @@
 figma.showUI(__html__, { width: 230, height: 350 });
 
+const key = 'SETTINGS';
+
 figma.ui.onmessage = msg => {
-  if (msg.type === 'cancel') {
-    figma.closePlugin();
+  if (msg.type === 'INIT_PLUGIN') {
+    figma.clientStorage.getAsync(key).then(settings => {
+      figma.ui.postMessage({ data: settings, type: 'SETTINGS' })
+    });
   }
 
-  if (msg.type === 'create-grid') {
+  if (msg.type === 'CREATE_GRID') {
     const options = msg.options;
     const totalGridLength = options.rows * options.cols;
 
@@ -90,10 +94,22 @@ figma.ui.onmessage = msg => {
     const group = figma.group(selection, selection[0].parent);
     group.name = 'Grid';
 
+    //Saving user settings
+    saveSettings(options);
+
     //Appending it to the parent of selection
     parentNode.appendChild(group);
     figma.currentPage.selection = [group];
+    const nodes = [];
+    nodes.push(group);
+    nodes.push(selection[0].parent);
+    figma.viewport.scrollAndZoomIntoView(nodes);
   }
+}
+
+const saveSettings = options => {
+  figma.clientStorage.setAsync(key, options).then(() => {
+  });
 }
 
 // Using Javascript implementation of Durstenfeld shuffle
