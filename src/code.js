@@ -1,4 +1,4 @@
-figma.showUI(__html__, { width: 230, height: 400 });
+figma.showUI(__html__, { width: 230, height: 390 });
 
 const key = 'SETTINGS';
 
@@ -103,7 +103,7 @@ figma.ui.onmessage = msg => {
       //Appending it to the parent of selection
       parentNode.appendChild(group);
       figma.currentPage.selection = [group];
-      nodes.push(group); 
+      nodes.push(group);
     } else {
       //Appending all the selection to the parent
       for (const node of selection) {
