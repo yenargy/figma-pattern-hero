@@ -30,7 +30,7 @@ module.exports = (env, argv) => ({
   // Webpack tries these extensions for you if you omit the extension like "import './file'"
   resolve: { 
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.vue'],
-    alias: {vue: 'vue/dist/vue.js'}
+    alias: { vue: argv.mode === 'production' ? 'vue/dist/vue.min' : 'vue/dist/vue.js' }
   },
 
   output: {
