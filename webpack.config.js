@@ -1,5 +1,6 @@
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const path = require('path')
 
 module.exports = (env, argv) => ({
@@ -15,6 +16,9 @@ module.exports = (env, argv) => ({
 
   module: {
     rules: [
+      // Enables vue loader
+      { test: /\.vue$/, loader: 'vue-loader' },
+
       // Enables including CSS by doing "import './file.css'" in your TypeScript code
       { test: /\.css$/, loader: [{ loader: 'style-loader' }, { loader: 'css-loader' }] },
 
@@ -24,7 +28,10 @@ module.exports = (env, argv) => ({
   },
 
   // Webpack tries these extensions for you if you omit the extension like "import './file'"
-  resolve: { extensions: ['.tsx', '.ts', '.jsx', '.js'] },
+  resolve: { 
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.vue'],
+    alias: {vue: 'vue/dist/vue.js'}
+  },
 
   output: {
     filename: '[name].js',
@@ -33,6 +40,7 @@ module.exports = (env, argv) => ({
 
   // Tells Webpack to generate "ui.html" and to inline "ui.ts" into it
   plugins: [
+    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: './src/ui.html',
       filename: 'ui.html',

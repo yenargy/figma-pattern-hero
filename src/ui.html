@@ -1,69 +1,73 @@
-<p class="help-text">Select one or more elements and choose the appropriate options below to create grid or a pattern</p>
-<div class="container">
-    <div class="options-row-container">
-        <div class="options-row-inner-container">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="16" height="16" fill="white"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M2 2H14V4H2V2ZM2 7H14V9H2V7ZM14 12H2V14H14V12Z" fill="black" fill-opacity="0.8"/>
-            </svg>
-            <p>Rows:</p>
-        </div>
-        <input id="rows" value="10">
-    </div>
-    <div class="options-row-container">
-        <div class="options-row-inner-container">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="16" height="16" fill="white"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M14 2L14 14L12 14L12 2L14 2ZM9 2L9 14L7 14L7 2L9 2ZM4 14L4 2L2 2L2 14L4 14Z" fill="black" fill-opacity="0.8"/>
-            </svg>
-            <p>Columns:</p>
-        </div>
-        <input id="cols" value="10">
-    </div>
-    <div class="options-row-container">
-        <div class="options-row-inner-container">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="16" height="16" fill="white"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 14L5 2H4H2V2.92308L4 2.92308V13.0769H2V14L4 14H5ZM11 2H12H14V2.92308L12 2.92308V13.0769H14V14H12H11L11 2ZM9 4.76923V11.2308H7L7 4.76923H9Z" fill="black" fill-opacity="0.8"/>
-            </svg>
-
-            <p>Padding:</p>
-        </div>
-        <input id="padding" value="5">
-    </div>
-    <label class="options-row-container">
-        <div class="options-row-inner-container">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="16" height="16" fill="white"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.19237 3.00585C8.52463 3.02363 8.8556 3.08314 9.17829 3.18455L9.21094 3.19496C10.0612 3.47011 10.8079 4.02298 11.3457 4.77445C11.3567 4.78984 11.3676 4.80532 11.3784 4.82088C11.8317 5.47153 12.1099 6.23781 12.1875 7.03777L10.1491 5.59215L9.57062 6.40785L12.3908 8.40785L12.7874 8.68912L13.0796 8.30052L14.9597 5.80052L14.1605 5.19948L13.085 6.62964C13.0784 6.58632 13.0714 6.5431 13.0639 6.5C12.9248 5.69947 12.6196 4.9377 12.1661 4.27219L12.1338 4.22539C11.4806 3.28768 10.5641 2.59558 9.51714 2.24875L9.48457 2.23808C9.07982 2.1071 8.66406 2.03026 8.2466 2.00732C8.06845 1.99753 7.88999 1.99756 7.71195 2.00739C7.21403 2.03487 6.71935 2.13898 6.24376 2.31933L6.20749 2.33325C5.48256 2.61464 4.82983 3.06355 4.29402 3.64296C4.20989 3.73393 4.12864 3.82813 4.05044 3.9254C3.92 4.08766 3.79807 4.25848 3.68544 4.43718L4.46637 4.99416C4.47612 4.97869 4.48595 4.96329 4.49587 4.94797C4.57971 4.81846 4.66957 4.69415 4.765 4.57544C5.24319 3.9806 5.86106 3.52627 6.55947 3.26143L6.59586 3.24783C6.97561 3.10796 7.36977 3.02722 7.7664 3.0059C7.90826 2.99828 8.05043 2.99826 8.19237 3.00585ZM2.8801 7.69947L1 10.1995L1.79922 10.8005L2.87468 9.37046C2.8812 9.41375 2.88821 9.45693 2.89569 9.5C3.03484 10.3005 3.34007 11.0623 3.79354 11.7278L3.82578 11.7746C4.47901 12.7123 5.39552 13.4044 6.44249 13.7513L6.47505 13.7619C6.87979 13.8929 7.29553 13.9697 7.71297 13.9927C7.89118 14.0025 8.0697 14.0024 8.2478 13.9926C8.74568 13.9651 9.24031 13.861 9.71586 13.6807L9.75214 13.6668C10.4771 13.3854 11.1298 12.9364 11.6656 12.357C11.7497 12.2661 11.831 12.1719 11.9092 12.0746C12.0396 11.9123 12.1616 11.7415 12.2742 11.5628L11.4933 11.0058C11.4835 11.0213 11.4737 11.0367 11.4638 11.052C11.3799 11.1815 11.2901 11.3058 11.1946 11.4246C10.7164 12.0194 10.0986 12.4737 9.40016 12.7386L9.36376 12.7522C8.98405 12.892 8.58992 12.9728 8.19333 12.9941C8.05143 13.0017 7.90921 13.0017 7.76722 12.9941C7.43498 12.9764 7.10401 12.9169 6.78133 12.8155L6.74869 12.805C5.89843 12.5299 5.1517 11.977 4.61396 11.2256C4.60295 11.2102 4.59202 11.1947 4.58118 11.1791C4.12791 10.5284 3.84974 9.76214 3.7721 8.96216L5.81061 10.4078L6.38909 9.59215L3.56895 7.59215L3.17234 7.31088L2.8801 7.69947Z" fill="black" fill-opacity="0.8"/>
-            </svg>
-            <p>Repeat Nodes:</p>
-        </div>
-        <div class="switch-outer-container">
-            <div class="switch-container">
-                <input type="checkbox" class="switch-checkbox" id="repeat">
-                <span class="switch-slider"></span>
+<div id="app">
+    <p class="help-text">Select one or more elements and choose the appropriate options below to create grid or a pattern</p>
+    <div class="container">
+        <div class="options-row-container">
+            <div class="options-row-inner-container">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="16" height="16" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2 2H14V4H2V2ZM2 7H14V9H2V7ZM14 12H2V14H14V12Z" fill="black" fill-opacity="0.8"/>
+                </svg>
+                <p>Rows:</p>
             </div>
+            <input id="rows" v-model.number="config.rows">
         </div>
-    </label>
-    <label class="options-row-container">
-        <div class="options-row-inner-container">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="16" height="16" fill="white"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6045 2.84803L11.9306 4.21649C9.84021 4.07461 8.372 4.34001 7.31586 4.89475C6.48477 5.33128 5.94356 5.92836 5.56307 6.57564C5.55681 6.55466 5.55051 6.53364 5.54417 6.51257C5.39811 6.02739 5.23004 5.52741 4.98085 5.08302C4.72731 4.63089 4.38326 4.22389 3.88134 3.93519C3.38174 3.64781 2.76462 3.5 2 3.5V4.5C2.63593 4.5 3.07047 4.62239 3.38274 4.80202C3.6927 4.98031 3.92075 5.23709 4.10862 5.57213C4.30085 5.91492 4.44352 6.32549 4.58662 6.80084C4.62376 6.9242 4.66122 7.05311 4.69973 7.18558L4.69974 7.18561L4.69974 7.18562C4.77607 7.44825 4.85648 7.72489 4.94644 8.00003C4.85648 8.27518 4.77607 8.55182 4.69974 8.81445L4.69974 8.81446L4.69973 8.81449C4.66122 8.94696 4.62376 9.07587 4.58662 9.19923C4.44352 9.67457 4.30085 10.0851 4.10862 10.4279C3.92075 10.763 3.6927 11.0198 3.38274 11.1981C3.07047 11.3777 2.63593 11.5001 2 11.5001V12.5001C2.76462 12.5001 3.38174 12.3523 3.88134 12.0649C4.38326 11.7762 4.72731 11.3692 4.98085 10.917C5.23004 10.4727 5.39811 9.97268 5.54417 9.4875C5.55051 9.46643 5.55681 9.4454 5.56307 9.42442C5.94356 10.0717 6.48477 10.6688 7.31586 11.1053C8.372 11.6601 9.84021 11.9255 11.9306 11.7836L10.6045 13.152L11.3226 13.848L13.6034 11.4945L13.9565 11.1301L13.587 10.7824L11.3062 8.63589L10.6208 9.36412L12.1117 10.7672C9.98751 10.9415 8.65196 10.6775 7.78086 10.22C6.80756 9.70878 6.33757 8.9152 6.00397 8.00003C6.33757 7.08486 6.80756 6.29129 7.78086 5.78006C8.65196 5.32252 9.98751 5.05855 12.1117 5.23287L10.6208 6.63595L11.3062 7.36418L13.587 5.21769L13.9565 4.86997L13.6034 4.50562L11.3226 2.1521L10.6045 2.84803Z" fill="black" fill-opacity="0.8"/>
-            </svg>
-            <p>Shuffle Nodes:</p>
-        </div>
-        <div class="switch-outer-container">
-            <div class="switch-container">
-                <input type="checkbox" class="switch-checkbox" id="shuffle">
-                <span class="switch-slider"></span>
+        <div class="options-row-container">
+            <div class="options-row-inner-container">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="16" height="16" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14 2L14 14L12 14L12 2L14 2ZM9 2L9 14L7 14L7 2L9 2ZM4 14L4 2L2 2L2 14L4 14Z" fill="black" fill-opacity="0.8"/>
+                </svg>
+                <p>Columns:</p>
             </div>
+            <input id="cols" v-model.number="config.cols">
         </div>
-    </label>
-    <span id="error">Select atleast one node</span>
-    <button id="create">
-        <span id="default-action">Create Pattern</span>
-        <span id="loading-action" class="loading"></span>
-    </button>
+        <div class="options-row-container">
+            <div class="options-row-inner-container">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="16" height="16" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5 14L5 2H4H2V2.92308L4 2.92308V13.0769H2V14L4 14H5ZM11 2H12H14V2.92308L12 2.92308V13.0769H14V14H12H11L11 2ZM9 4.76923V11.2308H7L7 4.76923H9Z" fill="black" fill-opacity="0.8"/>
+                </svg>
+    
+                <p>Padding:</p>
+            </div>
+            <input id="padding" v-model.number="config.padding">
+        </div>
+        <label class="options-row-container">
+            <div class="options-row-inner-container">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="16" height="16" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.19237 3.00585C8.52463 3.02363 8.8556 3.08314 9.17829 3.18455L9.21094 3.19496C10.0612 3.47011 10.8079 4.02298 11.3457 4.77445C11.3567 4.78984 11.3676 4.80532 11.3784 4.82088C11.8317 5.47153 12.1099 6.23781 12.1875 7.03777L10.1491 5.59215L9.57062 6.40785L12.3908 8.40785L12.7874 8.68912L13.0796 8.30052L14.9597 5.80052L14.1605 5.19948L13.085 6.62964C13.0784 6.58632 13.0714 6.5431 13.0639 6.5C12.9248 5.69947 12.6196 4.9377 12.1661 4.27219L12.1338 4.22539C11.4806 3.28768 10.5641 2.59558 9.51714 2.24875L9.48457 2.23808C9.07982 2.1071 8.66406 2.03026 8.2466 2.00732C8.06845 1.99753 7.88999 1.99756 7.71195 2.00739C7.21403 2.03487 6.71935 2.13898 6.24376 2.31933L6.20749 2.33325C5.48256 2.61464 4.82983 3.06355 4.29402 3.64296C4.20989 3.73393 4.12864 3.82813 4.05044 3.9254C3.92 4.08766 3.79807 4.25848 3.68544 4.43718L4.46637 4.99416C4.47612 4.97869 4.48595 4.96329 4.49587 4.94797C4.57971 4.81846 4.66957 4.69415 4.765 4.57544C5.24319 3.9806 5.86106 3.52627 6.55947 3.26143L6.59586 3.24783C6.97561 3.10796 7.36977 3.02722 7.7664 3.0059C7.90826 2.99828 8.05043 2.99826 8.19237 3.00585ZM2.8801 7.69947L1 10.1995L1.79922 10.8005L2.87468 9.37046C2.8812 9.41375 2.88821 9.45693 2.89569 9.5C3.03484 10.3005 3.34007 11.0623 3.79354 11.7278L3.82578 11.7746C4.47901 12.7123 5.39552 13.4044 6.44249 13.7513L6.47505 13.7619C6.87979 13.8929 7.29553 13.9697 7.71297 13.9927C7.89118 14.0025 8.0697 14.0024 8.2478 13.9926C8.74568 13.9651 9.24031 13.861 9.71586 13.6807L9.75214 13.6668C10.4771 13.3854 11.1298 12.9364 11.6656 12.357C11.7497 12.2661 11.831 12.1719 11.9092 12.0746C12.0396 11.9123 12.1616 11.7415 12.2742 11.5628L11.4933 11.0058C11.4835 11.0213 11.4737 11.0367 11.4638 11.052C11.3799 11.1815 11.2901 11.3058 11.1946 11.4246C10.7164 12.0194 10.0986 12.4737 9.40016 12.7386L9.36376 12.7522C8.98405 12.892 8.58992 12.9728 8.19333 12.9941C8.05143 13.0017 7.90921 13.0017 7.76722 12.9941C7.43498 12.9764 7.10401 12.9169 6.78133 12.8155L6.74869 12.805C5.89843 12.5299 5.1517 11.977 4.61396 11.2256C4.60295 11.2102 4.59202 11.1947 4.58118 11.1791C4.12791 10.5284 3.84974 9.76214 3.7721 8.96216L5.81061 10.4078L6.38909 9.59215L3.56895 7.59215L3.17234 7.31088L2.8801 7.69947Z" fill="black" fill-opacity="0.8"/>
+                </svg>
+                <p>Repeat Nodes:</p>
+            </div>
+            <div class="switch-outer-container">
+                <div class="switch-container">
+                    <input type="checkbox" class="switch-checkbox" id="repeat" v-model="config.repeat">
+                    <span class="switch-slider"></span>
+                </div>
+            </div>
+        </label>
+        <label class="options-row-container">
+            <div class="options-row-inner-container">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="16" height="16" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6045 2.84803L11.9306 4.21649C9.84021 4.07461 8.372 4.34001 7.31586 4.89475C6.48477 5.33128 5.94356 5.92836 5.56307 6.57564C5.55681 6.55466 5.55051 6.53364 5.54417 6.51257C5.39811 6.02739 5.23004 5.52741 4.98085 5.08302C4.72731 4.63089 4.38326 4.22389 3.88134 3.93519C3.38174 3.64781 2.76462 3.5 2 3.5V4.5C2.63593 4.5 3.07047 4.62239 3.38274 4.80202C3.6927 4.98031 3.92075 5.23709 4.10862 5.57213C4.30085 5.91492 4.44352 6.32549 4.58662 6.80084C4.62376 6.9242 4.66122 7.05311 4.69973 7.18558L4.69974 7.18561L4.69974 7.18562C4.77607 7.44825 4.85648 7.72489 4.94644 8.00003C4.85648 8.27518 4.77607 8.55182 4.69974 8.81445L4.69974 8.81446L4.69973 8.81449C4.66122 8.94696 4.62376 9.07587 4.58662 9.19923C4.44352 9.67457 4.30085 10.0851 4.10862 10.4279C3.92075 10.763 3.6927 11.0198 3.38274 11.1981C3.07047 11.3777 2.63593 11.5001 2 11.5001V12.5001C2.76462 12.5001 3.38174 12.3523 3.88134 12.0649C4.38326 11.7762 4.72731 11.3692 4.98085 10.917C5.23004 10.4727 5.39811 9.97268 5.54417 9.4875C5.55051 9.46643 5.55681 9.4454 5.56307 9.42442C5.94356 10.0717 6.48477 10.6688 7.31586 11.1053C8.372 11.6601 9.84021 11.9255 11.9306 11.7836L10.6045 13.152L11.3226 13.848L13.6034 11.4945L13.9565 11.1301L13.587 10.7824L11.3062 8.63589L10.6208 9.36412L12.1117 10.7672C9.98751 10.9415 8.65196 10.6775 7.78086 10.22C6.80756 9.70878 6.33757 8.9152 6.00397 8.00003C6.33757 7.08486 6.80756 6.29129 7.78086 5.78006C8.65196 5.32252 9.98751 5.05855 12.1117 5.23287L10.6208 6.63595L11.3062 7.36418L13.587 5.21769L13.9565 4.86997L13.6034 4.50562L11.3226 2.1521L10.6045 2.84803Z" fill="black" fill-opacity="0.8"/>
+                </svg>
+                <p>Shuffle Nodes:</p>
+            </div>
+            <div class="switch-outer-container">
+                <div class="switch-container">
+                    <input type="checkbox" class="switch-checkbox" id="shuffle" v-model="config.shuffle">
+                    <span class="switch-slider"></span>
+                </div>
+            </div>
+        </label>
+        <transition name="fade">
+            <p class="error" v-if="error">{{errorMsg}}</p>
+        </transition>
+        <button id="create" v-on:click="createPattern()">
+            <span v-if="loading" class="loading"></span>
+            <span v-else>Create Pattern</span>
+        </button>
+    </div>
 </div>
