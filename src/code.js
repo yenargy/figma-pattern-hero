@@ -18,7 +18,7 @@ figma.ui.onmessage = msg => {
 
     if (!(selection.length > 0)) {
       console.log('no selection');
-      figma.ui.postMessage({ data: {}, type: 'ERROR' })
+      figma.ui.postMessage({ data: {}, type: 'ERROR_EMPTY_SELECTION' })
       return;
     }
 
