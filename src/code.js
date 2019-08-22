@@ -1,4 +1,4 @@
-figma.showUI(__html__, { width: 230, height: 350 });
+figma.showUI(__html__, { width: 230, height: 400 });
 
 const key = 'SETTINGS';
 
@@ -92,18 +92,30 @@ figma.ui.onmessage = msg => {
       }
     }
 
-    //Creating a group with the selection
-    const group = figma.group(selection, selection[0].parent);
-    group.name = 'Grid';
+
+    const nodes = [];
+
+    if (options.group) {
+      //Creating a group with the selection
+      const group = figma.group(selection, selection[0].parent);
+      group.name = 'Pattern';
+
+      //Appending it to the parent of selection
+      parentNode.appendChild(group);
+      figma.currentPage.selection = [group];
+      nodes.push(group); 
+    } else {
+      //Appending all the selection to the parent
+      for (const node of selection) {
+        parentNode.appendChild(node);
+      }
+      figma.currentPage.selection = selection;
+      nodes.push(selection[0]);
+    }
 
     //Saving user settings
     saveSettings(options);
 
-    //Appending it to the parent of selection
-    parentNode.appendChild(group);
-    figma.currentPage.selection = [group];
-    const nodes = [];
-    nodes.push(group);
     nodes.push(selection[0].parent);
     figma.viewport.scrollAndZoomIntoView(nodes);
     figma.ui.postMessage({ data: {}, type: 'DONE_LOADING' })

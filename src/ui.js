@@ -9,7 +9,8 @@ let app = new Vue({
       cols: 10,
       padding: 5,
       shuffle: false,
-      repeat: true
+      repeat: true,
+      group: true,
     },
     loading: false,
     error: false,
@@ -42,11 +43,7 @@ onmessage = e => {
 
   if (type === 'SETTINGS') {
     if (data) {
-      app.config.rows = data.rows;
-      app.config.cols = data.cols;
-      app.config.padding = data.padding;
-      app.config.shuffle = data.shuffle;
-      app.config.repeat = data.repeat;
+      Object.assign(app.config, data);
     }
   }
   if (type === 'DONE_LOADING') {
@@ -55,7 +52,7 @@ onmessage = e => {
   if (type === 'ERROR_EMPTY_SELECTION') {
     app.loading = false;
     app.error = true;
-    app.errorMsg = "Select atleast one node";
+    app.errorMsg = "Please select atleast one node";
     setTimeout(() =>{
       app.error = false;
     }, 2500)
