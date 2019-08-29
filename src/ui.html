@@ -76,9 +76,6 @@
                 </div>
             </div>
         </label>
-        <transition name="fade">
-            <p class="error" v-if="error">{{errorMsg}}</p>
-        </transition>
         <button id="create" v-on:click="createPattern()">
             <span v-if="loading" class="loading"></span>
             <span v-else>Create Pattern</span>

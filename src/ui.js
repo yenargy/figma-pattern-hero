@@ -13,8 +13,6 @@ let app = new Vue({
       group: true,
     },
     loading: false,
-    error: false,
-    errorMsg: ''
   },
   mounted() {
     // Initing plugin for saved settings
@@ -51,10 +49,5 @@ onmessage = e => {
   }
   if (type === 'ERROR_EMPTY_SELECTION') {
     app.loading = false;
-    app.error = true;
-    app.errorMsg = "Please select atleast one node";
-    setTimeout(() =>{
-      app.error = false;
-    }, 2500)
   }
 };

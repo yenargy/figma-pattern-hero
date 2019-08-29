@@ -18,6 +18,7 @@ figma.ui.onmessage = msg => {
 
     if (!(selection.length > 0)) {
       console.log('no selection');
+      figma.notify('Please select atleast one node')
       figma.ui.postMessage({ data: {}, type: 'ERROR_EMPTY_SELECTION' })
       return;
     }
@@ -25,7 +26,7 @@ figma.ui.onmessage = msg => {
     console.log(options);
 
     // Getting the position of the first selected node
-    let x = figma.currentPage.selection[0].x;
+    let x = figma.currentPage.selection[0].x * 2;
     let y = figma.currentPage.selection[0].y;
     let initialPosition = x;
 
@@ -35,18 +36,26 @@ figma.ui.onmessage = msg => {
     // Creating copy of selected items for repeating and shuffling
     let copies = [];
     selection.forEach(node => {
-      copies.push(node.clone())
+      if (node.type === 'COMPONENT') {
+        copies.push(node.createInstance())  
+      } else {
+        copies.push(node.clone())
+      }
     });
 
 
     // Do the repeat if the options is enabled
     if (options.repeat) {
-      //caching the length for performance
+      //caching the length
       const l = selection.length;
       while (copies.length  < totalGridLength) {
         for(let i = 0; i < l; i++) {
           if (copies.length < totalGridLength) {
-            copies.push(selection[i].clone());
+            if (selection[i].type === 'COMPONENT') {
+              copies.push(selection[i].createInstance());
+            } else {
+              copies.push(selection[i].clone());
+            }
           }
         }
       }
@@ -64,6 +73,10 @@ figma.ui.onmessage = msg => {
 
     // removing the previous selection
     selection.forEach(node => {
+      // Not removing the original master component
+      if (node.type === "COMPONENT") {
+        return;
+      }
       node.remove();
     });
 
