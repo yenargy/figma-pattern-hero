@@ -1,6 +1,6 @@
 {
   "name": "figma-pattern-hero",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Create patters, textures, grides seamlessly",
   "main": "code.js",
   "scripts": {
