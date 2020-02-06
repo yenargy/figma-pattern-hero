@@ -3,5 +3,12 @@
   "id": "740556241021336678",
   "api": "1.0.0",
   "main": "dist/code.js",
-  "ui": "dist/ui.html"
+  "ui": "dist/ui.html",
+  "relaunchButtons": [
+    {
+      "command": "openPlugin",
+      "name": "Pattern Hero",
+      "multipleSelection": true
+    }
+  ]
 }

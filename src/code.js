@@ -117,13 +117,16 @@ figma.ui.onmessage = msg => {
       parentNode.appendChild(group);
       figma.currentPage.selection = [group];
       nodes.push(group);
+      group.setRelaunchData({ openPlugin: "Click to create more patterns" })
     } else {
       //Appending all the selection to the parent
       for (const node of selection) {
         parentNode.appendChild(node);
+        node.setRelaunchData({ openPlugin: "Click to create more patterns" })
       }
       figma.currentPage.selection = selection;
       nodes.push(selection[0]);
+      
     }
 
     //Saving user settings
