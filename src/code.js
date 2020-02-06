@@ -136,8 +136,7 @@ figma.ui.onmessage = msg => {
 }
 
 const saveSettings = options => {
-  figma.clientStorage.setAsync(key, options).then(() => {
-  });
+  figma.clientStorage.setAsync(key, options).then(() => {});
 }
 
 // Using Javascript implementation of Durstenfeld shuffle
