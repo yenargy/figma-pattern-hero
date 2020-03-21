@@ -497,7 +497,7 @@ declare global {
     readonly height: number
     constrainProportions: boolean
   
-    layoutAlign: "MIN" | "CENTER" | "MAX" // applicable only inside auto-layout frames
+    layoutAlign: "MIN" | "CENTER" | "MAX" | "STRETCH" // applicable only inside auto-layout frames
   
     resize(width: number, height: number): void
     resizeWithoutConstraints(width: number, height: number): void
@@ -557,8 +557,6 @@ declare global {
   }
   
   interface RelaunchableMixin {
-  
-    /** PROPOSED API ONLY */
     setRelaunchData(relaunchData: { [command: string]: /* description */ string }): void
   }
   
