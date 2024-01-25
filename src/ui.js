@@ -11,6 +11,7 @@ let app = new Vue({
       shuffle: false,
       repeat: true,
       group: true,
+      offsetOddRows: false,
     },
     loading: false,
   },

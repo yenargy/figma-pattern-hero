@@ -71,7 +71,21 @@
             </div>
             <div class="switch-outer-container">
                 <div class="switch-container">
-                    <input type="checkbox" class="switch-checkbox" id="shuffle" v-model="config.group">
+                    <input type="checkbox" class="switch-checkbox" id="group" v-model="config.group">
+                    <span class="switch-slider"></span>
+                </div>
+            </div>
+        </label>
+        <label class="options-row-container">
+            <div class="options-row-inner-container">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4 2H2V4H4V2ZM14 2H12V4H14V2ZM4.5 7H6.5V9H4.5V7ZM4 12H2V14H4V12ZM12 12H14V14H12V12ZM9 2H7V4H9V2ZM9.5 7H11.5V9H9.5V7ZM9 12H7V14H9V12Z" fill="black" fill-opacity="0.8"/>
+                    </svg>
+                <p>Offset Rows</p>
+            </div>
+            <div class="switch-outer-container">
+                <div class="switch-container">
+                    <input type="checkbox" class="switch-checkbox" id="offset" v-model="config.offsetOddRows">
                     <span class="switch-slider"></span>
                 </div>
             </div>
