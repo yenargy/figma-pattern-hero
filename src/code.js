@@ -1,4 +1,4 @@
-figma.showUI(__html__, { width: 230, height: 390 });
+figma.showUI(__html__, { width: 230, height: 450 });
 
 const key = 'SETTINGS';
 
@@ -11,14 +11,21 @@ figma.ui.onmessage = msg => {
 
   if (msg.type === 'CREATE_GRID') {
     const options = msg.options;
-    const totalGridLength = options.rows * options.cols;
+    var totalGridLength = options.rows * options.cols;
+    console.log(`Expected symbol count ${totalGridLength}`);
+
+    if (options.offsetOddRows === true) {
+      totalGridLength = totalGridLength - Math.floor(options.rows / 2) - ((totalGridLength % 2) ? 1 : 0);
+    }
+
+    console.log(`Total symbol count ${totalGridLength}`);
 
     // Get selection on current page
     let { selection } = figma.currentPage;
 
     if (!(selection.length > 0)) {
       console.log('no selection');
-      figma.notify('Please select atleast one node')
+      figma.notify('Please select at least one node')
       figma.ui.postMessage({ data: {}, type: 'ERROR_EMPTY_SELECTION' })
       return;
     }
@@ -92,11 +99,19 @@ figma.ui.onmessage = msg => {
     // Placing into a grid logic
     for (let i = 0; i < options.rows; i++) {
       if (selectionCounter < selectionLength) {
-        for(let j = 0; j < options.cols; j++) {
+
+        const cols = options.cols - ((options.offsetOddRows && i % 2 === 1) ? 1 : 0);
+
+        for(let j = 0; j < cols; j++) {
           if (selectionCounter < selectionLength) {
+            if (options.offsetOddRows && i % 2 === 1 && j === 0) {
+              x += selection[selectionCounter].width / 2 + options.padding / 2;
+            }
+
             selection[selectionCounter].x = x;
             selection[selectionCounter].y = y;
             x = x + selection[selectionCounter].width + options.padding
+
             selectionCounter++;
           }
         }
